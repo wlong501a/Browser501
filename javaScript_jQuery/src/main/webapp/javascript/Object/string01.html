@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+문자 객체 생성<br>
+<script>
+	var t = new String("Hello Javascript");
+</script>
+<script>
+	var str = "Hello Thank you good luck to you";	//index는 0부터 시작
+	document.write(str.charAt(16)+"<br>");
+	document.write(str.indexOf("you")+"<br>");
+	document.write(str.indexOf("you",16)+"<br>");	//index 16이후에 값이 있으면 해당 값의인덱스
+	document.write(str.lastIndexOf("you",25)+"<br>");
+	document.write(str.match("luck")+"<br>");		//값이 있으면 값을 출력, 없으면 null 출력
+	document.write(str.search("luck")+"<br>");		//index 출력, 없으면 -1 출력
+	document.write(str.substring(6,12)+"<br>");		//index 6번부터 12번 전까지 출력
+	document.write(str.substr(21,4)+"<br>");	//index 21번부터 4번째까지 출력
+	
+</script>
+</body>
+</html>

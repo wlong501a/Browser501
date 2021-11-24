@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	document.write("<h3>컴퓨터 가위, 바위, 보 맞추기</h3>");
+	
+	var t = prompt("가위, 바위, 보 중 선택하세요?","가위");
+	var tnum;
+	switch(t){
+	case "가위": tnum = 1;
+		break;
+	case "바위": tnum = 2;
+		break;
+	case "보": tnum = 3;
+		break;
+	default : alert("올바르게 다시 입력해주세요!");
+	location.reload();		//현재위치에서 Window창 새로고침
+	}
+	var com = Math.ceil(Math.random()*3);
+	document.write("<img src ='../../images/math_img_"+ com +".jpg' alt='가위, 바위, 보'>");
+
+	// setTimeout : java의 Thread.sleep() 과 동일, 정해진 시간이 지난 후에 실행
+	if(tnum == com){
+		setTimeout(function(){alert("짝짝짝! 맞췄습니다!");},300);
+	}else {
+		setTimeout(function(){alert("땡! 다음에 다시 도전하세요!");},300);
+	}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var i = 0;
+//	var auto = setTimeout("console.log(++i)",3000);		3초후 단 한번 진행
+	var auto = setInterval("console.log(++i)",3000);  //3초마다 반복 진행
+
+</script>
+<button onclick="clearInterval(auto)">정지버튼</button>
+</body>
+</html>

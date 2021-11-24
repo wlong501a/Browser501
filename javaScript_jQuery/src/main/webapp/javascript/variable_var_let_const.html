@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+변수 선언 방법: var, let, const<br>
+		   : 불필요한 변수의 재사용 방지를 위해서 구분<hr>
+var : 변수 재선언 (O), 재할당 (O)<br>
+let : 변수 재선언 (X), 재할당 (O)<br>
+const : 변수 재선언 (X), 재할당 (X)<hr>
+
+<script type="text/javascript">
+document.write("----------var-----------");
+var v = 'var변수선언';
+console.log(v);
+
+var v = 'var변수 재선언';
+console.log(v);
+v = 'var변수 재할당';
+console.log(v);
+
+document.write("----------let-----------");
+let t = 'let변수선언';
+console.log(t);
+
+/* let t = 'let변수 재선언';
+console.log(t); */
+t = 'let변수 재할당';
+console.log(t);
+
+document.write("---------const----------");
+const c = 'const변수선언';
+console.log(c);
+
+/* const c = 'const변수 재선언';
+console.log(c); */
+/* c = 'const변수 재할당';
+console.log(c); */
+
+
+</script>
+
+
+
+</body>
+</html>

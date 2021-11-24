@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+<h2>전구불켜기</h2>
+
+
+<p></p>
+
+
+<!--↓자바스크립트 <script>을 사용하지않고 이용함.
+    버튼을 누르게 되면 "document.getElementById('myImage').src='images/turn_on.gif'" 실행됨.
+     => id myImage의 src에 'images/turn_on.gif'가 삽입됨 -->
+<button onclick="document.getElementById('myImage').src='images/turn_on.gif'">Turn on the light</button>
+
+<img id="myImage" src="images/turn_off.gif" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='images/turn_off.gif'">Turn off the light</button>
+
+</body>
+</html>

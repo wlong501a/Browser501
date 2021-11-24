@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	var num = 0;	//전역변수
+	
+	function testFnc() {
+		var a = 500;	//지역변수
+		num ++;
+		document.write(num + "<br>");
+		if(num == 10){
+			return;	//10까지 출력한후 비교함. 10이면 함수를 부른 곳으로 감(함수를빠져나감)
+		}
+		testFnc();	//num이 10이 아니라면 본인스스로 호출
+	}
+	testFnc();
+	document.write(num + "<br>");	//전역변수 num은 함수가 끝나도 이용할 수 있음
+	//document.write(a + "<br>");	//지역변수 a는 함수안에서만 활용할 수 있음.
+	
+</script>
+</body>
+</html>

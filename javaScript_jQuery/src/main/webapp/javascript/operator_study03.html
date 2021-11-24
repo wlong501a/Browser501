@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+1. 구구단 작성하기(2~9단)
+<hr>
+
+<script >
+	for (var i = 2; i<=9; i++) {
+		document.write("<h3>" + i +"&nbsp; 단</h3>");
+		for (var k = 1; k<=9; k++){
+			document.write(i + " x " + k + " = " + (i*k) + "<br>");
+		}	
+	}
+</script>
+<hr>
+
+2. 원하는 구구단<br>
+
+<script>
+	var j = prompt("구구단","0");
+	document.write("<h3>" + j +"&nbsp; 단</h3>");
+		for (var k = 1; k<=9; k++){
+			m = j*k;
+			document.write(j + " x " + k + " = " + m + "<br>");
+		}
+		
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주문서 작성하기</title>
+<style>
+
+label.tit{
+	font-weight: bold;
+	width : 80px;
+	float:left;
+}
+h1, div.centerd {text-align: center;}
+fieldset {
+	margin: 15px 10px;
+	background-color: #cedb85;
+}
+fieldset legend {
+	color: purple;
+	font-size: 18px;
+}
+ul {list-style-type: none;}
+ul li {margin-bottom: 10px;}
+</style>
+
+</head>
+<body>
+	<form action="#" method="get">
+		<h1>상품 주문서</h1>
+
+		<fieldset>
+			<legend style="color: purple;">개인 정보</legend>
+
+			<ul>
+				<li>
+					<label for="uname" class="tit">이름</label> 
+					<input type="text" id="uname" placeholder="여백없이 작성" required="required">
+				</li>
+				<li>
+					<label for="tel1" class="tit">연락처</label>
+					<input type="tel" id="tel1" placeholder="연락가능한 번호">
+				</li>
+			</ul>
+		</fieldset>
+
+		<fieldset>
+			<legend style="color: purple;">배송지 정보</legend>
+			<ul>
+				<li>
+					<label for="addr" class="tit">주소</label>
+					<input type="text" id="addr">
+				</li>
+				
+				<li>
+					<label for="tel2" class="tit">전화번호</label>
+					<input type="tel" id="tel2" >
+				</li>
+				
+				<li>
+					<label for="comment" class="tit">메 모</label> 
+					<textarea rows="3" cols="40" id="comment"></textarea>
+				</li>
+			</ul>
+
+		</fieldset>
+
+		<fieldset>
+			<legend style="color: purple;">주문 정보</legend>
+			<ul>
+				<li>
+					<label><input type="checkbox">과테말라 안티구아(100g)</label>
+					<label> <input type="number" value="0" min="0" mac="5">개</label>
+				</li>
+					
+				<li>
+					<label><input type="checkbox">인도네시아 만델링(100g)</label>
+					<label> <input type="number" value="0" min="0" mac="5">개</label>
+				</li>
+					
+				<li>
+					<label><input type="checkbox">탐라는 도다(블렌딩)(100g)</label>
+					<label> <input type="number" value="0" min="0" mac="5">개</label>
+				</li>
+			</ul>
+		</fieldset>
+		
+		<div class="centerd">
+			<input type="submit" value="주문하기">
+			<input type="reset" value="다시작성">
+		</div>
+	</form>
+</body>
+</html>
