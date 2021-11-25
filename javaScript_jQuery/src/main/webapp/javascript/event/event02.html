@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+2가지 방식으로 click, mouseover를 등록시켜 배경색 바꾸기<hr>
+
+<script>
+	var colors = ["white","yellow","aqua","purple"];
+	var i = 0
+	
+	function colorBg() {
+		i++;
+		if( i >= colors.length){
+			i=0;
+		}
+		//1. ↓문서안에 첫번째<body>태그를 찾아서 style.backgroundColor를 배열colors[i]적용해라
+		//document.getElementsByTagName("body")[0].style.backgroundColor=colors[i];
+		
+		//2. ↓ 변수bodyTag는 문서안에 첫번째<body>태그를 찾고, 변수bodyTag의 style.backgroundColor=colors[i] 적용해라
+		var bodyTag = document.getElementsByTagName("body")[0];
+		bodyTag.style.backgroundColor=colors[i];
+	}
+	//문서가 모두 진행이 완료되었을때 화면에 표시
+	window.onload = function() {
+		//btn2
+		document.getElementById("btn2").onclick = function() {
+			colorBg();
+		}
+		//btn4
+		document.getElementById("btn4").onmouseover = function() {
+			colorBg();
+		}
+	}
+	
+	
+</script>
+
+<button onclick="colorBg();">버튼1</button>
+<button id="btn2">버튼2</button>
+<button onmouseover="colorBg();" onfocus="colorBg();">버튼3</button>
+<button id="btn4">버튼4</button>
+
+</body>
+</html>
