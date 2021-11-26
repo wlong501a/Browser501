@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력-내가혼자</title>
+<SCRIPT>
+	// 시간을 읽어와서 오전/오후로 브라우저에 보여줄 수 있게 해줍니다.
+	function get_Time() {
+		var now = new Date();
+		var hour = now.getHours();
+		var minute = now.getMinutes();
+		var ampm;
+
+
+		if (hour >= 12) {
+			hour -= 12;
+			ampm = "오후";
+			if (hour == 0) {
+				hour = 12;
+			}
+		} else
+			ampm = "오전";
+
+		if (minute < 10) {
+			minute = "0" + minute;
+		}
+		return ampm + hour + ":" + minute;
+	}
+
+	// 년과 달을 받아서 마지막 일을 알아 냅니다.
+	function get_Day(year, month) {
+		var Last_Mon = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+		if (year % 4 == 0) {
+			Last_Mon[1] = 29;
+		} else {
+			Last_Mon[1] = 28;
+		}
+
+		return Last_Mon[month];
+	}
+
+	// table태그를 이용하여 달력을 만들어 줍니다.
+	function drawCal(firstDay, lastDate, date, year, monthName) {
+		var text = "<center>";
+		text += "<table>";
+
+		text += "<tr ALIGN=center VALIGN=center>";
+		text += '<th colspan="7">' + year + " 년" + monthName + " 월"
+				+ "</th></tr><tr>";
+
+		var openCol = "<td BGCOLOR=#FFEFFF WIDTH=45 HEIGHT=40> "
+		openCol += "<font color=darkblue> "
+
+		var closeCol = "</FONT></TD>"
+
+		text += "<tr ALIGN=center VALIGN=center>";
+
+		var weekDay = new Array("일", "월", "화", "수", "목", "금", "토");
+
+		// 달력의 일, 월, 화, 수, 목, 금, 토, 요일을 출력합니다.
+		for ( var i in weekDay) {
+			text += openCol + weekDay[i] + closeCol;
+		}
+
+		text += "</tr>";
+
+		var digit = 1;
+		var curCell = 0;
+
+		// 달력 표를 만들어 줍니다.
+		for (var row = 1; row <= Math.ceil((lastDate + firstDay - 1) / 7); ++row) {
+			text += "<tr ALIGN=right VALIGN=top BGCOLOR=#FFEFEE>";
+
+			for (var col = 1; col <= 7; col++) {
+
+				if (digit > lastDate) {
+					break;
+				}
+				
+				if (curCell < firstDay) {
+					text += "<td></td>";
+					curCell++;
+				} else if (digit == date.getDate()) {
+					text += '<td>';
+					text += '<font color="red">';
+					text += digit + "<br>";
+					text += "<center>" + get_Time() + "</center>";
+					text += "</font>"
+					text += "</td>";
+				}else{
+				text += "<td>" + digit + "</td>";
+				}
+				digit++;
+			}
+			text += "</tr>"
+
+		}
+
+		text += "</TABLE>"
+		text += "</CENTER>"
+
+		return text
+	}
+
+	window.onload = function() {
+		var now = new Date();
+		var now_Year = now.getFullYear();
+		var now_Month = now.getMonth() + 1;
+
+		var firstDay = now.getDay(now_Year, now_Month, 1);
+		var lastDate = get_Day(now_Year, now_Month);
+		var text = drawCal(now_Day, lastDate, now, now_Year, now_Month);
+		document.write(text);
+
+	}
+</SCRIPT>
+</head>
+<body>
+
+</body>
+</html>

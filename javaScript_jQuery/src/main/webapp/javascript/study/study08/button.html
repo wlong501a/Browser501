@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 객체</title>
+</head>
+<body>
+
+<h1>마우스 아웃</h1>
+<a href="#" id="btn"><img src="btn_out.gif" alt="버튼"></a>
+<p id="img_src"></p>
+
+
+<script>
+	var theBtn = document.getElementById("btn");
+	var s = document.getElementById("img_src");
+
+	
+//버튼위에 mouseover 되었을때
+	theBtn.onmouseover = function() {
+		document.getElementsByTagName("h1")[0].innerHTML='마우스 오버';	//글씨변경
+		theBtn.firstChild.src="btn_over.gif";	//이미지변경
+		s.innerHTML = theBtn.firstChild.src;	//이미지 주소값 변경
+	}
+	
+//버튼위에 mouseout 되었을때(default상태), 추가적으로 버튼주소 추가하여 출력하기
+	theBtn.onmouseout = function() {
+		document.getElementsByTagName("h1")[0].innerHTML="마우스 아웃";
+		theBtn.firstChild.src="btn_out.gif";
+		s.innerHTML = theBtn.firstChild.src;
+	}
+
+
+
+
+
+
+</script>
+</body>
+</html>

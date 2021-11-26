@@ -18,15 +18,15 @@ new Date(date string)<br>
 <script>
 	var t = new Date();
 	document.write(t.getFullYear()+"<br>");
-	document.write(t.getMonth() + 1 +"<br>");
-	document.write(t.getDate()+"<br>");
-	document.write(t.getDay()+"<br>");
+	document.write(t.getMonth() + 1 +"<br>");	//+1 필수
+	document.write(t.getDate()+"<br>");		//이번달 날짜
+	document.write(t.getDay()+"<br>");		//월=1 ,화=2, ...
 	
-	var t2 = new Date(2020,4,31);
+	var t2 = new Date(2020,4,31);	//2020.05.31
 	document.write(t2.getFullYear()+"<br>");
 	document.write(t2.getMonth() + 1 +"<br>");
 	document.write(t2.getDate()+"<br>");
-	document.write(t2.getDay()+"<br>");
+	document.write(t2.getDay()+"<br>");		//t2에 day가 없어서 0
 
 
 

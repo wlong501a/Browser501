@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>달력-선생님</title>
+</head>
+<body>
+<script>
+	//현재시간표시
+	function get_Time(){
+		var now = new Date();
+		var hour = now.getHours();
+		var minute = now.getMinutes();
+		var ampm;	//오전 오후
+		
+		//오전오후 표시
+		if (hour >= 12){
+			hour -= 12;
+			ampm = "오후";
+		}else {
+			ampm = "오전";
+		}
+		//12시일경우 12시로 표시
+		hour = (hour == 0)? 12:hour;
+		
+		//분이 10분 미만이면 앞에 0붙임
+		if(minute < 10){
+			minute = "0" + minute;
+		}
+
+		return ampm + hour + ":" + minute;
+	}
+	//년과 달을 받아서 마지막 일자 구하기
+	function get_Day(year,month) {
+		var Last_Mon = new Array(31,29,31,30,31,30,31,31,30,31,30,31);
+		var Mon2;
+		
+		//2월 윤년구하기
+		if(year%4 == 0){
+			Mon2 = true;
+		}else {
+			Mon2 =false;
+		}
+		// 변수 = (참/거짓)?  참값 : 거짓값;
+		Last_Mon[1] = (Mon2)? 29 : 28;
+		
+		return Last_Mon[month];
+	}
+	
+	var digit = 1;	//일자
+	var curCell = 0;	//3행의 첫번째칸
+	
+	
+	
+	//table작성으로 달력만들기 (7행,7열)
+	function drawCal(firstDay, lastDate, date, year, monthName) {
+		//1행 년도와 월 표시
+		var text = "";
+		text += "<center><table><th colspan='7' BGCOLOR=#f0f0f0>";
+		text +="<font color=midnightblue size= +3>";
+		text += year + " 년" + (monthName+1) + " 월"+ "</font></th>";
+		
+		var weekDay = new Array("일", "월", "화", "수", "목", "금", "토");
+		
+		text += "<tr ALIGN=center VALIGN=center>";
+		
+		var openCol = "<td BGCOLOR=#FFEFFF WIDTH=45 HEIGHT=40> ";
+			openCol += "<font color=darkblue> ";
+			
+		var closeCol = "</FONT></TD>"
+		
+		//2행 요일표시
+		for(var dayNum=0; dayNum<weekDay.length; dayNum++){
+			text += openCol + weekDay[dayNum] + closeCol;
+		}
+		text += "</tr>"
+		
+		//3행~ 날짜표시
+		for(var row=1; row<= Math.ceil((lastDate + firstDay -1)/7); row++){
+			text += "<tr ALIGN=right VALIGN=top BGCOLOR=#FFEFEE>";
+			
+			for(var col=1; col<=7; col++){
+				if(digit > lastDate){
+					break;		//digit가 해당 달의 마지막날보다 크다면 반복문종료
+				}
+				
+				if(curCell < firstDay){
+					text += "<td>&nbsp;</td>";	//&nbsp 사용안하면 칸이 줄어듦
+					curCell++;
+				}else{
+					
+					if(digit == date){
+						text += "<td HEIGHT=40>";
+						text += '<font color="red">';
+						text += digit;
+						text += "</font><br>";
+						text += "<font clolr=purple size=2>"
+						text += "<center>" + get_Time(); + "</center>";
+						text += "</font>"
+						text += "</td>";
+					}else{
+						text += "<td HEIGHT=40>"+digit+"</td>";
+					}
+					digit ++;
+				}
+			}
+			text += "</tr>";	//for(var col=1; col<=7; col++)의 마지막에 줄바꿈
+		}
+			text += "</TABLE>"
+			text += "</CENTER>"
+
+			return text;
+	}
+</script>
+<script>
+	var now = new Date();
+	var year = now.getYear() + 1900;	//121;	1900+121 = 2021
+	var month = now.getMonth();
+	var date = now.getDate();
+	
+	var firstDayInstance = new Date(year,month,1);		//(년도,월,1일)를 firstDayInstance객체만들고
+	var firstDay = firstDayInstance.getDay();	//firstDayInstance(년도,월,1일)의 요일계산
+	console.log("firstDay : "+firstDay);
+	var lastDate = get_Day(year,month);	//달의 마지막 일
+	
+	var my_text = drawCal(firstDay, lastDate, date, year, month);
+	document.write(my_text);
+</script>
+</body>
+</html>
