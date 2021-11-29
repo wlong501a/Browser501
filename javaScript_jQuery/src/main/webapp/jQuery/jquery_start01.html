@@ -10,21 +10,28 @@ jQuery: -자바스크립트를 이용해 만든 라이브러리(자바스크립�
 		-저바스크립트는 호환성이 낮다 => jQuery(호환성 증대): App설계시 한번만 설계(Android, Apple)<br>
 		-쉽고 편리한 Animation 효과 기능<hr>
 <script>
-$(document).ready(function() {
+$(document).ready(function() {		//기본형: 모든요소가 준비가 되면 함수를 실행함
 	alert("기본형 : jQuery Start!");
 });
 
 $(function() {
-	alert("생략된 방식 : jQuery Start!");
+	alert("생략된 방식 : jQuery Start!");	//생략형
 });
 
 $(function() {
 	$("*").css("border","1px solid blue");
 });
+
+$(function() {
+	$(".direct,h2").css("background-color","yellow");
+});
+
+
+
 </script>
 
 <h1>jQuery</h1>
 <h2>선택자(selector)</h2>
-<h3>직접 선택자</h3>
+<h3 class="direct">직접 선택자</h3>
 </body>
 </html>

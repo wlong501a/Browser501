@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화소개팝업창</title>
+</head>
+<body>
+<img id="movie" alt="영화포스터" src="venom2.jfif"><br>
+<p id="width_height"></p>
+
+<script>
+	var img = document.getElementById("movie")
+	
+	img.style.border="3px solid blue";
+	
+	img.onclick = function() {
+		window.close();		
+	}
+	/* document.getElementById("width_height").innerHTML= getImageSize(); */
+	
+	var img_width = img.width;
+	var img_height = img.height;
+	
+	document.write("Browser inner window"+img_width+","+img_height);
+	
+	/* function getImageSize() {
+		
+		var img_width = img.width;
+		var img_height = img.height;
+	    
+		document.write("Browser inner window"+img_width+","+img_height);
+	} */
+
+</script>
+</body>
+</html>
