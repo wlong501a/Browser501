@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+//1. h1 a안에 키보드를 고려한 버튼에 마우스가 올라갔을때 글자색이 빨간색, 벗어났을때 글자색이 노란색
+	$(function() {
+/* 		$("h1 a").on("mouseover focus", function() {
+			$("a").css("color","red");
+		});
+		$("h1 a").on("mouseout blur", function() {
+			$("a").css("color","yellow");
+		}); */
+		
+//	↓ 한번에 묶기	$().on({ , });
+		$("h1 a").on({
+			"mouseover focus" : function() {
+			$(this).css("color","red");
+		},
+			"mouseout blur" : function() {
+			$(this).css("color","yellow");
+		}
+		});
+//2. <h2></h2> 사이에"생성된 요소(마우스가 올라갔을때 글자색이 노란색, 벗어났을때 글자색이 아쿠아색)" 넣기
+		$("h2").append("<a href='#'>생성된 동적요소</a>");
+		$("h2 a").on("mouseover focus", function() {
+			$(this).css("color","yellow");
+		});
+		$(document).on("mouseout blur","h2 a", function() {
+			$(this).css("color","aqua");
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+on(): 선택요소에 한개 이상의 이벤트를 등록<br>
+	  jQuery1.7버전에서 delegate() => on() 변경
+<h1><a href="#">버튼</a></h1>
+<h2></h2>
+</body>
+</html>
