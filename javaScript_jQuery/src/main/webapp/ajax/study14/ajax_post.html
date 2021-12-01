@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style >
+	#form {
+		border: 1px solid black;
+		width: 350px;
+		padding: 3px;
+	}
+</style>
+<script>
+	$(function() {
+		$("#submit").click(function() {
+			var username = $(".username").val();
+			var sendData = "username="+username;
+			$.post("welcom.jsp",sendData, function(data) {
+				$("#message").append(data);
+			});
+			
+		});
+		
+	});
+
+</script>
+</head>
+<body>
+<form id="form" method="post">  
+	<label id="name">이름을 입력하세요: </label>
+	<input type="text" name="username" class="username"><br>
+	<input type="button" id="submit" value="전송">
+</form>  
+  <div id="message"></div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+#calendar_wrap{
+	text-align: center;
+	background-color: #363636;
+	color: white;
+	width: 300;
+	height: 400;
+	padding: 3px;
+}
