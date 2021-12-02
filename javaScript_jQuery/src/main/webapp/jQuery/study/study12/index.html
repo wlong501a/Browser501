@@ -11,19 +11,28 @@
 <script>
 var now = new Date();
 var year = now.getFullYear();
-var month = now.getMonth();
-var date = now.getDate();
+var month = now.getMonth()+1;
+
+var firstDayInstance = new Date(year,month,1);		
+var firstDay = firstDayInstance.getDay();
+console.log("firstDay : "+firstDay);
+var lastDate = get_Day(year,month);	
+
+var my_text = drawCal(firstDay, lastDate, year, month);
+
 
 	$(function() {
-		$().click(function() {
+		
+		
+		$("#before_m").click(function() {
 			$("#calendar_wrap").load();
 		});
 		
-		$().click(function() {
+		$("#next_m").click(function() {
 			$("#calendar_wrap").load();
 		});
 		
-		$("#tit").append(year_month());
+		
 	});
 
 
@@ -39,8 +48,8 @@ var date = now.getDate();
 
 
 
-<button id="before_m">이전달</button>
-<button id="next_m">다음달</button>
+<input id="before_m">이전달
+<input id="next_m">다음달
 </div>
 
 

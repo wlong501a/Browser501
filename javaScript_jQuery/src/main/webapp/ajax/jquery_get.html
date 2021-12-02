@@ -17,8 +17,8 @@
 				$("#treeData").append("<tr><td>"
 									+$item.attr("id")+"</td><td>"
 									+$item.attr("name")+"</td><td>"
-									+$item.text("price")+"</td><td>"
-									+$item.text("description")+"</td></tr>");
+									+$item.find("price").text()+"</td><td>"
+									+$item.find("description").text()+"</td></tr>");
 			});
 		});
 	});
