@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>현재시간</title>
 </head>
 <body>
-
+현재시각: <%=new java.util.Date() %>
 </body>
 </html>
