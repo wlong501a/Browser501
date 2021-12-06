@@ -14,6 +14,8 @@
 name: <%=request.getParameter("name") %><br>
 address: <%=request.getParameter("address") %><br><hr>
 
+
+
 <b>request.getParameterValues() 사용</b><br>
 <%
 	String[] v = request.getParameterValues("pet");
@@ -27,6 +29,9 @@ address: <%=request.getParameter("address") %><br><hr>
 	}
 %>
 <br>
+
+
+
 <b>request.getParameterNames() 사용</b><br>
 <%
 	Enumeration<String> paramEnum = request.getParameterNames();
@@ -37,6 +42,9 @@ address: <%=request.getParameter("address") %><br><hr>
 %>
 
 <br>
+
+
+
 <b>request.getParameterMap() 사용</b><br>
 <%
 	Map parameterMap = request.getParameterMap();

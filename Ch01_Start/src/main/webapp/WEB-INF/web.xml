@@ -21,4 +21,15 @@
   	<url-pattern>/ch02_start/Start_Xml</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>ServletTest2</servlet-name>
+ 	 <servlet-class>study.SportServlet_Xml</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ServletTest2</servlet-name>
+  	<url-pattern>/study02/SportXml</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
