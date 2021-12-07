@@ -2,9 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>두 값의 합구하기</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function() {
+		$("#btn").on("click", function() {
+			$.ajax({
+				url:"calc.jsp",
+				type:"post",
+				dataType:"text",
+				data:{
+					num1:$("#num1").val(),
+					num2:$("#num2").val()
+				},
+				success:function(result,status,xhr) {
+					$("#result").text(result);
+				},
+				error: function(xhr,status,error) {
+					console.log(error);
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 
+값1<input type="text" name="num1" id="num1"><br>
+값2<input type="text" name="num2" id="num2"><br><br>
+<button id="btn">계산</button><br>
+<div id="result"></div>
 </body>
 </html>
