@@ -27,8 +27,8 @@ public class LoginServlet_MVC2 extends HttpServlet {
 		
 		if(id.equals("admin") && pw.equals("1234")) {
 //아이디와 비밀번호가 일치하면 로그인서버접속			
-			HttpSession session = request.getSession();
-			session.setAttribute("ids", id);
+			HttpSession session = request.getSession();	//1. 세션 만들기
+			session.setAttribute("ids", id);	//2. 만들어진 세션에 이름,데이터 설정하기
 			session.setAttribute("pws", pw);
 			
 			RequestDispatcher d = request.getRequestDispatcher("../loginout/logout_mvc2.jsp");
