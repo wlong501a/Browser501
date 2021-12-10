@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<hr>
+현재시간은 <%=CURRENT_TIME %>입니다.
+<hr>
+
 </body>
 </html>
