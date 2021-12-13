@@ -1,33 +1,24 @@
-package study;
+package study02;
 
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/study02/Sport")
-public class SportServlet extends HttpServlet {
+//@WebServlet("/study02/SportXml")
+public class SportServlet_Xml extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * request.setCharacterEncoding("utf-8");
-		 * response.setContentType("text/html;charset=utf-8");
-		 * 
-		 * String exercise = request.getParameter("exercise"); String gender =
-		 * request.getParameter("gender");
-		 * 
-		 * PrintWriter out = response.getWriter();
-		 * out.println("<html><body> 좋아하는 운동2: "+exercise+"<br>성별: "+gender+
-		 * "</body></html>");
-		 */
 		
 	}
 
@@ -40,6 +31,18 @@ public class SportServlet extends HttpServlet {
 		String[] sports = req.getParameterValues("exercise");
 		String gender = req.getParameter("gender");
 		
+		//MVC2
+		HttpSession sess = req.getSession();
+		sess.setAttribute("s", sports);
+		sess.setAttribute("g", gender);
+		
+		//servlet에서 forward
+		RequestDispatcher d = req.getRequestDispatcher("sport_mvc2.jsp?id=hong");
+		d.forward(req, resp);//목적파일출력
+		
+		
+		
+		//MVC1
 		PrintWriter out = resp.getWriter();
 		out.println("<html><body>");
 		for(String s : sports) {

@@ -1,43 +1,42 @@
-package study;
-
+package study09;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/study02/Member")
-public class Member extends HttpServlet {
+@WebServlet("/study09_cookie/CartDeleteCookie")
+public class CartDeleteCookieServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doPost(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		
-		String[] sports = request.getParameterValues("exercise");
-		String gender = request.getParameter("gender");
-		
 		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
+		out.print("<html><body>장바구니 비웠음!!"+"<br>");
 		
-		Enumeration<String> enu = request.getParameterNames();
-		while(enu.hasMoreElements()) {
-			String name = enu.nextElement();
-			String value = request.getParameter(name);
-			out.print(name+" : "+value+"<br>");
+		Cookie[]  cookies =  request.getCookies();
+		
+		if(cookies != null) {
+			  for(Cookie c : cookies) {
+				  c.setMaxAge(1);
+				  response.addCookie(c);
+			  }		  
+		}else {
+			out.print("장바구니 비었음<br><br>");
 		}
-		out.println("</body></html>");
+				
+		out.print("<a href='cookie.html'>상품선택페이지</a><br>");
+		out.print("</body></html>");
 	}
-
 }

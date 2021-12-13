@@ -9,7 +9,7 @@
 <body>
 <jsp:useBean id="memberInfo" class="member.MemberInfo"></jsp:useBean>
 
-<jsp:setProperty property="*" name="memberInfo"/>
+<jsp:setProperty property="*" name="memberInfo"/>	<!-- => 모든 속성을 memberInfo에 저장 -->
 <jsp:setProperty property="password" name="memberInfo" value="<%=memberInfo.getId() %>"/>
 
 <jsp:getProperty property="name" name="memberInfo"/><br>

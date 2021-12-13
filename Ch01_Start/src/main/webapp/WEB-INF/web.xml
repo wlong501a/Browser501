@@ -22,7 +22,7 @@
   
   <servlet>
   	<servlet-name>ServletTest2</servlet-name>
- 	 <servlet-class>study.SportServlet_Xml</servlet-class>
+ 	 <servlet-class>study02.SportServlet_Xml</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ServletTest2</servlet-name>

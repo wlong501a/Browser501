@@ -9,6 +9,8 @@
 <body>
 <img src="forward.png"><br>
 <img src="redirect.png"><br>
+지금 페이지는 <b>responseResult.jsp</b>이다.<br>
+
 <%
 	String id = request.getParameter("id");
 	
@@ -17,7 +19,5 @@
 	String ids = (String)request.getAttribute("ids");
 	out.println("ids는 "+ids+"<br>");
 %>
-지금 페이지는 <b>responseResult.jsp</b>이다.<br>
-
 </body>
 </html>
