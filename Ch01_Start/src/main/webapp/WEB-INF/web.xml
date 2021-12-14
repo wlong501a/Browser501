@@ -93,6 +93,35 @@
   </servlet-mapping>
   
   
+<!--   <servlet>
+  	<servlet-name>Animal-Servlet</servlet-name>
+ 	 <servlet-class>study10.AnimalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Animal-Servlet</servlet-name>
+  	<url-pattern>/study10_session/animal</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Result-Servlet</servlet-name>
+ 	 <servlet-class>study10.ResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Result-Servlet</servlet-name>
+  	<url-pattern>/study10_session/result</url-pattern>
+  </servlet-mapping> -->
+  
+  <context-param>
+  	<description>초기화 파라미터 name</description>
+  	<param-name>Name</param-name>
+  	<param-value>GZ</param-value>
+  </context-param>
+  
+  <context-param>
+  	<description>초기화 파라미터 age</description>
+  	<param-name>AGE</param-name>
+  	<param-value>30</param-value>
+  </context-param>
   
   
 </web-app>

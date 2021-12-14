@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//wet.xml 있음
 //Servlet에서 Servlet으로 데이터전송
-
 @WebServlet("/study10_session/result")
 public class ResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
