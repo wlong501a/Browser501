@@ -35,7 +35,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 
 		try {
-			String sql = "select id,password,name,address,tel,reg_date from member2";
+			String sql = "select * from member2";
 			con = DriverManager.getConnection(url, userid, passwd);
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
