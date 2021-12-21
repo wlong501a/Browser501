@@ -1,29 +1,40 @@
-package ch17_servlet;
+package test2;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//URL Pattern Mapping Rule
-//(1) Directory Pattern
-//(2) Extension(확장자) Pattern
 
 
-//(2) Extension(확장자) Pattern
-//@WebServlet("*.nhn")
-public class G_TestServlet extends HttpServlet {
+@WebServlet("/test2/choiceDog")
+public class ChoiceDogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("GTestServlet");
+		doPost(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		
-		doGet(request, response);
+		String[] dog = request.getParameterValues("dog");
+		
+		PrintWriter out = response.getWriter();
+		
+		out.println("<html><body>");
+		for(String d : dog) {
+			out.println(d);
+		}
+		out.println("</body></html>");
+		
+	}
+	
 	}
 
-}
+

@@ -1,4 +1,3 @@
-package ch17_servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,24 +5,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//URL Pattern Mapping Rule
-//(1) Directory Pattern
-//(2) Extension(확장자) Pattern
 
 
-//(2) Extension(확장자) Pattern
-//@WebServlet("*.nhn")
-public class G_TestServlet extends HttpServlet {
+@WebServlet("*.do")
+public class FrontControlloerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("GTestServlet");
+		doPost(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Command Pattern
 		
-		doGet(request, response);
+		String requestURI = request.getRequestURI();
+		System.out.println("requestURI:: " + requestURI);
+		
+		String contextPath = request.getContextPath();
+		System.out.println("contextPath:: " + contextPath);
+		
+		String command = requestURI.substring(contextPath.length());
+		System.out.println("command:: " + command);
 	}
 
 }

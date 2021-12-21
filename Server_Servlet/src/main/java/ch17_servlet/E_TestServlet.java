@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 //http://localhost:8080/Server_Servlet/my/ss.go		=>	FTestServlet
 
 //(2) Extension(확장자) Pattern : '*'인 경우 '/' 제거 (예)@WebServlet("/*.do")
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class E_TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
