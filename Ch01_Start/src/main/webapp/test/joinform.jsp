@@ -11,32 +11,12 @@
 $(function() {
 	
 	$("#btn").on("click", function() {
-		if($("#pw1").val() == $("#pw2").val()){
-			$.ajax({
-				url:"join.jsp",
-				type:"post",
-				data:{
-					id: $("#id").val(),
-					pw1 : $("#pw1").val(),
-					name : $("#name").val()	
-				},
-				success:function(){
-					alert("성공!");
-				},
-				error:function(){
-					alert("실패!");
-				}
-				
-			});
-			
-		}else {
+		if($("#password").val() != $("#password2").val()){
 			alert("비밀번호 확인");
-			
+			return false;
 		}
 	});
-
 });
-
 
 </script>
 
@@ -44,8 +24,8 @@ $(function() {
 <body>
 <form action="join.jsp" method="post">
 아이디<input type="text" name="id" id="id" required autofocus><br>
-암호<input type="password" name="pw1" id="pw1" required><br>
-암호확인<input type="password" name="pw2" id="pw2" required><br>
+암호<input type="password" name="password" id="password" required><br>
+암호확인<input type="password"  id="password2" required><br>
 이름<input type="text" name="name" id="name" required><br>
 <input type="submit" value="submit" id="btn">
 </form>

@@ -1,11 +1,13 @@
 package test;
 
+import java.sql.Date;
+
 public class Member {
 	
 	private String id;
 	private String password;
 	private String name;
-	
+	private Date reg_date;
 	
 	public Member() {
 		
@@ -30,8 +32,11 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public Date getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
 	
-	
-	
-
 }
