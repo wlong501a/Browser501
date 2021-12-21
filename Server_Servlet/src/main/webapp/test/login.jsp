@@ -8,23 +8,28 @@
 </head>
 <body>
 <%
-	int result = (Integer)request.getAttribute("result");
+	String num = (String)request.getAttribute("result");
+	int result = Integer.parseInt(num);
 
-	if(result > 0 ){
+	if(result == 1){
 %>
 	<script>
 		alert("로그인 성공!");
 	</script>
 <%		
 		response.sendRedirect("main.do");
-	}else if(result == 0){
+	}
+	
+	if(result == 0){
 %>
 	<script>
 		alert("암호가 다릅니다!");
 	</script>
 <%		
 		response.sendRedirect("loginForm.jsp");
-	}else{
+	}
+	
+	if(result == -1){
 %>
 	<script>
 		alert("없는 아이디입니다.");
