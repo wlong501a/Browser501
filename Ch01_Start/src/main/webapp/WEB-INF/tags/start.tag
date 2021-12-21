@@ -1,4 +1,7 @@
 <%@tag import="java.util.Calendar"%>
+
+<!-- body-content="empty","tagdependent","scriptless(default)" -->
+
 <%@ tag language="java" pageEncoding="UTF-8" body-content="empty"%>
 <%
 	Calendar c = Calendar.getInstance();
